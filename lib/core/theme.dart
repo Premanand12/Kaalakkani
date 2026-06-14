@@ -2,26 +2,26 @@ import 'package:flutter/material.dart';
 
 class KaalakkaniTheme {
   // Brand colours
-  static const saffron = Color(0xFFC4520F);
-  static const saffronDeep = Color(0xFF9E3F08);
-  static const saffronLight = Color(0xFFF0784A);
-  static const gold = Color(0xFFD4890A);
-  static const goodGreen = Color(0xFF2D8A4E);
-  static const badRed = Color(0xFFC0392B);
-  static const warnAmber = Color(0xFFC07800);
-  static const infoBlue = Color(0xFF1A6FAF);
+  static const saffron = Color(0xFF6366F1); // Indigo
+  static const saffronDeep = Color(0xFF4338CA); // Deep Indigo
+  static const saffronLight = Color(0xFF818CF8); // Light Indigo
+  static const gold = Color(0xFFF59E0B); // Amber
+  static const goodGreen = Color(0xFF10B981); // Emerald
+  static const badRed = Color(0xFFEF4444); // Red
+  static const warnAmber = Color(0xFFF59E0B); // Amber
+  static const infoBlue = Color(0xFF3B82F6); // Blue
 
   // Light background system
-  static const bgPageLight = Color(0xFFFFF8F2);
+  static const bgPageLight = Color(0xFFF8FAFC); // Slate Light
   static const bgCardLight = Color(0xFFFFFFFF);
-  static const bgCard2Light = Color(0xFFFFF3EB);
+  static const bgCard2Light = Color(0xFFEEF2F6);
   static const bgNavLight = Color(0xFFFFFFFF);
 
   // Dark background system
-  static const bgPageDark = Color(0xFF0E0805);
-  static const bgCardDark = Color(0xFF1C1108);
-  static const bgCard2Dark = Color(0xFF261508);
-  static const bgNavDark = Color(0xFF150E05);
+  static const bgPageDark = Color(0xFF0A0F1D); // Cosmic Slate
+  static const bgCardDark = Color(0xFF151D30); // Deep Space Card
+  static const bgCard2Dark = Color(0xFF222C42);
+  static const bgNavDark = Color(0xFF151D30);
 
   static const _tamil = 'NotoSansTamil';
 
@@ -54,26 +54,26 @@ class KaalakkaniTheme {
         surface: bgCardLight,
         background: bgPageLight,
         onPrimary: Colors.white,
-        onSurface: const Color(0xFF1A0A00),
+        onSurface: const Color(0xFF0F172A),
       ),
       scaffoldBackgroundColor: bgPageLight,
       textTheme: _tamilTextTheme(null),
       appBarTheme: const AppBarTheme(
         backgroundColor: bgPageLight,
-        foregroundColor: Color(0xFF1A0A00),
+        foregroundColor: Color(0xFF0F172A),
         elevation: 0,
         centerTitle: false,
         titleTextStyle: TextStyle(
           fontFamily: _tamil,
           fontSize: 16,
           fontWeight: FontWeight.w700,
-          color: Color(0xFF1A0A00),
+          color: Color(0xFF0F172A),
         ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: bgNavLight,
         selectedItemColor: saffron,
-        unselectedItemColor: Color(0xFFA07050),
+        unselectedItemColor: Color(0xFF94A3B8),
         type: BottomNavigationBarType.fixed,
         elevation: 0,
         selectedLabelStyle: TextStyle(fontFamily: _tamil, fontSize: 9, fontWeight: FontWeight.w600),
@@ -81,12 +81,13 @@ class KaalakkaniTheme {
       ),
       cardTheme: CardThemeData(
         color: bgCardLight,
-        elevation: 0,
+        elevation: 4,
+        shadowColor: saffron.withOpacity(0.06),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: BorderSide(color: saffron.withOpacity(0.08), width: 0.8),
+          borderRadius: BorderRadius.circular(18),
+          side: BorderSide(color: saffron.withOpacity(0.06), width: 0.5),
         ),
-        margin: const EdgeInsets.symmetric(vertical: 5),
+        margin: const EdgeInsets.symmetric(vertical: 6),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -104,11 +105,11 @@ class KaalakkaniTheme {
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: saffron, width: 1.2),
         ),
-        labelStyle: const TextStyle(fontFamily: _tamil, fontSize: 12, color: Color(0xFF1A0A00)),
-        hintStyle: TextStyle(fontFamily: _tamil, fontSize: 12, color: const Color(0xFF1A0A00).withOpacity(0.4)),
+        labelStyle: const TextStyle(fontFamily: _tamil, fontSize: 12, color: Color(0xFF0F172A)),
+        hintStyle: TextStyle(fontFamily: _tamil, fontSize: 12, color: const Color(0xFF0F172A).withOpacity(0.4)),
       ),
       dividerTheme: DividerThemeData(
-        color: const Color(0xFF1A0A00).withOpacity(0.05),
+        color: const Color(0xFF0F172A).withOpacity(0.05),
         thickness: 0.5,
       ),
       extensions: const [KaalakkaniColors.light()],
@@ -122,33 +123,33 @@ class KaalakkaniTheme {
         seedColor: saffron,
         brightness: Brightness.dark,
         primary: saffronLight,
-        secondary: const Color(0xFF6FD98C),
+        secondary: const Color(0xFF34D399),
         surface: bgCardDark,
         background: bgPageDark,
         onPrimary: Colors.white,
-        onSurface: const Color(0xFFFFF0E6),
+        onSurface: const Color(0xFFF1F5F9),
       ),
       scaffoldBackgroundColor: bgPageDark,
       textTheme: _tamilTextTheme(null).apply(
-        bodyColor: const Color(0xFFFFF0E6),
-        displayColor: const Color(0xFFFFF0E6),
+        bodyColor: const Color(0xFFF1F5F9),
+        displayColor: const Color(0xFFF1F5F9),
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: bgPageDark,
-        foregroundColor: Color(0xFFFFF0E6),
+        foregroundColor: Color(0xFFF1F5F9),
         elevation: 0,
         centerTitle: false,
         titleTextStyle: TextStyle(
           fontFamily: _tamil,
           fontSize: 16,
           fontWeight: FontWeight.w700,
-          color: Color(0xFFFFF0E6),
+          color: Color(0xFFF1F5F9),
         ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: bgNavDark,
-        selectedItemColor: Color(0xFFF0784A),
-        unselectedItemColor: Color(0xFF8A6050),
+        selectedItemColor: Color(0xFF818CF8),
+        unselectedItemColor: Color(0xFF64748B),
         type: BottomNavigationBarType.fixed,
         elevation: 0,
         selectedLabelStyle: TextStyle(fontFamily: _tamil, fontSize: 9, fontWeight: FontWeight.w600),
@@ -156,12 +157,13 @@ class KaalakkaniTheme {
       ),
       cardTheme: CardThemeData(
         color: bgCardDark,
-        elevation: 0,
+        elevation: 4,
+        shadowColor: Colors.black.withOpacity(0.2),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: BorderSide(color: saffron.withOpacity(0.15), width: 0.8),
+          borderRadius: BorderRadius.circular(18),
+          side: BorderSide(color: saffronLight.withOpacity(0.1), width: 0.5),
         ),
-        margin: const EdgeInsets.symmetric(vertical: 5),
+        margin: const EdgeInsets.symmetric(vertical: 6),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -179,8 +181,8 @@ class KaalakkaniTheme {
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: saffronLight, width: 1.2),
         ),
-        labelStyle: const TextStyle(fontFamily: _tamil, fontSize: 12, color: Color(0xFFFFF0E6)),
-        hintStyle: TextStyle(fontFamily: _tamil, fontSize: 12, color: const Color(0xFFFFF0E6).withOpacity(0.4)),
+        labelStyle: const TextStyle(fontFamily: _tamil, fontSize: 12, color: Color(0xFFF1F5F9)),
+        hintStyle: TextStyle(fontFamily: _tamil, fontSize: 12, color: const Color(0xFFF1F5F9).withOpacity(0.4)),
       ),
       dividerTheme: DividerThemeData(
         color: Colors.white.withOpacity(0.05),
@@ -212,19 +214,19 @@ class KaalakkaniColors extends ThemeExtension<KaalakkaniColors> {
   });
 
   const KaalakkaniColors.light() : this(
-    good: const Color(0xFF2D8A4E), bad: const Color(0xFFC0392B),
-    warn: const Color(0xFFC07800), info: const Color(0xFF1A6FAF),
-    goodBg: const Color(0xFFEAF5EE), badBg: const Color(0xFFFDECEA),
-    warnBg: const Color(0xFFFEF4E0), infoBg: const Color(0xFFE8F2FB),
-    card2: const Color(0xFFFFF3EB), navBg: const Color(0xFFFFFFFF),
+    good: const Color(0xFF10B981), bad: const Color(0xFFEF4444),
+    warn: const Color(0xFFF59E0B), info: const Color(0xFF3B82F6),
+    goodBg: const Color(0xFFECFDF5), badBg: const Color(0xFFFEF2F2),
+    warnBg: const Color(0xFFFFFBEB), infoBg: const Color(0xFFEFF6FF),
+    card2: const Color(0xFFEEF2F6), navBg: const Color(0xFFFFFFFF),
   );
 
   const KaalakkaniColors.dark() : this(
-    good: const Color(0xFF6FD98C), bad: const Color(0xFFFF8878),
-    warn: const Color(0xFFFFD070), info: const Color(0xFF79B8F5),
-    goodBg: const Color(0xFF041505), badBg: const Color(0xFF1A0500),
-    warnBg: const Color(0xFF1A0F00), infoBg: const Color(0xFF020508),
-    card2: const Color(0xFF261508), navBg: const Color(0xFF150E05),
+    good: const Color(0xFF34D399), bad: const Color(0xFFF87171),
+    warn: const Color(0xFFFBBF24), info: const Color(0xFF60A5FA),
+    goodBg: const Color(0xFF062016), badBg: const Color(0xFF280C0B),
+    warnBg: const Color(0xFF241505), infoBg: const Color(0xFF0F1E36),
+    card2: const Color(0xFF222C42), navBg: const Color(0xFF151D30),
   );
 
   @override

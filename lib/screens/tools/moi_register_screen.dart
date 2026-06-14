@@ -63,7 +63,7 @@ class _MoiRegisterScreenState extends State<MoiRegisterScreen> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: _add,
-                style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFFC4520F),
+                style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary,
                     foregroundColor: Colors.white, padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
                 child: Text(AppLocale.s(context, 'add_submit'), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
@@ -80,14 +80,13 @@ class _MoiRegisterScreenState extends State<MoiRegisterScreen> {
     final cs = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFFC4520F), foregroundColor: Colors.white,
-        title: Text(AppLocale.s(context, 'tool_moi'), 
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        title: Text(AppLocale.s(context, 'tool_moi').replaceAll('\n', ' ')),
+        centerTitle: true,
         actions: [
           TextButton(
             onPressed: _showAddDialog,
-            child: Text(AppLocale.s(context, 'add_btn'), style: const TextStyle(color: Colors.white,
-                fontSize: 14, fontWeight: FontWeight.bold)),
+            child: Text(AppLocale.s(context, 'add_btn'), style: TextStyle(color: Theme.of(context).colorScheme.primary,
+                fontSize: 14.5, fontWeight: FontWeight.bold)),
           ),
         ],
       ),
@@ -98,7 +97,7 @@ class _MoiRegisterScreenState extends State<MoiRegisterScreen> {
             margin: const EdgeInsets.all(14),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              gradient: const LinearGradient(colors: [Color(0xFFC4520F), Color(0xFF9E3F08)]),
+              gradient: const LinearGradient(colors: [Color(0xFF6366F1), Color(0xFF4338CA)]),
               borderRadius: BorderRadius.circular(14),
             ),
             child: Row(
@@ -130,8 +129,8 @@ class _MoiRegisterScreenState extends State<MoiRegisterScreen> {
                             style: TextStyle(fontSize: 13,
                                 color: cs.onSurface.withOpacity(0.55))),
                         trailing: Text('₹${(r['amount'] as double? ?? 0).toStringAsFixed(0)}',
-                            style: const TextStyle(fontFamily: 'Inter', fontSize: 16,
-                                fontWeight: FontWeight.w700, color: Color(0xFFC4520F))),
+                            style: TextStyle(fontFamily: 'Inter', fontSize: 16,
+                                fontWeight: FontWeight.w700, color: Theme.of(context).colorScheme.primary)),
                         onLongPress: () {
                           showDialog(
                             context: context,

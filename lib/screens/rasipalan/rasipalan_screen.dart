@@ -48,7 +48,7 @@ class _RasipalanScreenState extends ConsumerState<RasipalanScreen>
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft, end: Alignment.bottomRight,
-                colors: [Color(0xFFC4520F), Color(0xFF9E3F08)],
+                colors: [Color(0xFF6366F1), Color(0xFF4338CA)],
               ),
             ),
             child: SafeArea(
@@ -172,7 +172,7 @@ class _RasiList extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
                 color: isExpanded
-                    ? const Color(0xFFC4520F).withOpacity(0.5)
+                    ? Theme.of(context).colorScheme.primary.withOpacity(0.5)
                     : Theme.of(context).dividerColor,
                 width: isExpanded ? 1.5 : 0.5,
               ),
@@ -204,14 +204,23 @@ class _RasiList extends StatelessWidget {
                                 style: const TextStyle(
                                     fontFamily: 'NotoSansTamil', fontSize: 13,
                                     fontWeight: FontWeight.w600)),
-                            if (!isExpanded)
-                              Text(
-                                (r['prediction_ta'] as String).length > 40
-                                    ? '${(r['prediction_ta'] as String).substring(0, 40)}...'
-                                    : r['prediction_ta'] as String,
-                                style: TextStyle(fontFamily: 'NotoSansTamil', fontSize: 10,
-                                    color: Theme.of(context).colorScheme.onSurface.withOpacity(0.55)),
+                            if (!isExpanded) ...[
+                              Builder(
+                                builder: (context) {
+                                  final predText = AppLocale.translatePrediction(context, r['prediction_ta'] as String? ?? '');
+                                  return Text(
+                                    predText.length > 40
+                                        ? '${predText.substring(0, 40)}...'
+                                        : predText,
+                                    style: TextStyle(
+                                      fontFamily: 'NotoSansTamil',
+                                      fontSize: 10,
+                                      color: Theme.of(context).colorScheme.onSurface.withOpacity(0.55),
+                                    ),
+                                  );
+                                },
                               ),
+                            ],
                           ],
                         ),
                       ),
@@ -234,15 +243,22 @@ class _RasiList extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(r['prediction_ta'] as String,
-                            style: const TextStyle(fontFamily: 'NotoSansTamil',
-                                fontSize: 12, height: 1.7)),
+                        Text(
+                          AppLocale.translatePrediction(context, r['prediction_ta'] as String? ?? ''),
+                          style: const TextStyle(fontFamily: 'NotoSansTamil', fontSize: 12, height: 1.7),
+                        ),
                         const SizedBox(height: 10),
                         Row(
                           children: [
-                            _InfoChip(label: AppLocale.s(context, 'lucky_color'), value: r['lucky_color_ta'] as String? ?? ''),
+                            _InfoChip(
+                              label: AppLocale.s(context, 'lucky_color'),
+                              value: AppLocale.translateColor(context, r['lucky_color_ta'] as String? ?? ''),
+                            ),
                             const SizedBox(width: 8),
-                            _InfoChip(label: AppLocale.s(context, 'lucky_num'), value: '${r['lucky_number'] ?? ''}'),
+                            _InfoChip(
+                              label: AppLocale.s(context, 'lucky_num'),
+                              value: '${r['lucky_number'] ?? ''}',
+                            ),
                           ],
                         ),
                       ],

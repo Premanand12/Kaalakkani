@@ -18,9 +18,8 @@ class PalliPalangalScreen extends ConsumerWidget {
     
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFFC4520F), foregroundColor: Colors.white,
-        title: Text(AppLocale.s(context, 'tool_palli'), 
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        title: Text(AppLocale.s(context, 'tool_palli').replaceAll('\n', ' ')),
+        centerTitle: true,
       ),
       body: data.when(
         loading: () => const Center(child: CircularProgressIndicator()),

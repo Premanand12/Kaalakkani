@@ -93,7 +93,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFF8F2),
+      backgroundColor: const Color(0xFFF8FAFC),
       body: Center(
         child: FadeTransition(
           opacity: _fade,
@@ -113,7 +113,7 @@ class _SplashScreenState extends State<SplashScreen>
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF9E3F08),
+                    color: Color(0xFF4338CA),
                     letterSpacing: 1.2,
                   ),
                 ),
@@ -122,7 +122,7 @@ class _SplashScreenState extends State<SplashScreen>
                   'உங்கள் நாள்தோறும் நல்ல நாள்',
                   style: TextStyle(
                     fontSize: 13,
-                    color: Color(0xFFC4520F),
+                    color: Color(0xFF6366F1),
                   ),
                 ),
               ],

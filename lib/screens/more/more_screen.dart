@@ -54,11 +54,11 @@ class _MoreScreenState extends State<MoreScreen> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            backgroundColor: const Color(0xFFC4520F),
-            foregroundColor: Colors.white,
+            backgroundColor: cs.background,
+            foregroundColor: cs.onSurface,
             title: Text(
               AppLocale.s(context, 'more_app_bar'),
-              style: const TextStyle(fontFamily: 'NotoSansTamil', fontSize: 15),
+              style: const TextStyle(fontFamily: 'NotoSansTamil', fontSize: 16.5, fontWeight: FontWeight.bold),
             ),
             pinned: true,
           ),
@@ -147,7 +147,7 @@ class _MoreScreenState extends State<MoreScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(t.icon, color: const Color(0xFFC4520F), size: 26),
+                           Icon(t.icon, color: cs.primary, size: 26),
                           const SizedBox(height: 6),
                           Text(t.label,
                               textAlign: TextAlign.center,

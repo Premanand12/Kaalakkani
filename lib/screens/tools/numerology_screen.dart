@@ -46,9 +46,8 @@ class _NumerologyScreenState extends State<NumerologyScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFFC4520F), foregroundColor: Colors.white,
-        title: Text(AppLocale.s(context, 'tool_numerology'), 
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        title: Text(AppLocale.s(context, 'tool_numerology').replaceAll('\n', ' ')),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -79,7 +78,7 @@ class _NumerologyScreenState extends State<NumerologyScreen> {
                   lastDate: DateTime.now(),
                   builder: (ctx, child) => Theme(
                     data: Theme.of(ctx).copyWith(
-                        colorScheme: cs.copyWith(primary: const Color(0xFFC4520F))),
+                        colorScheme: cs.copyWith(primary: Theme.of(context).colorScheme.primary)),
                     child: child!,
                   ),
                 );
@@ -115,7 +114,7 @@ class _NumerologyScreenState extends State<NumerologyScreen> {
                   });
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFC4520F), foregroundColor: Colors.white,
+                  backgroundColor: Theme.of(context).colorScheme.primary, foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
                 ),
@@ -177,7 +176,7 @@ class _NumCard extends StatelessWidget {
           Container(
             width: 60, height: 60,
             decoration: BoxDecoration(
-              color: const Color(0xFFC4520F),
+              color: Theme.of(context).colorScheme.primary,
               borderRadius: BorderRadius.circular(14),
             ),
             child: Center(child: Text('$number',

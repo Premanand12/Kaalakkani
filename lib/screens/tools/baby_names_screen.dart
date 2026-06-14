@@ -25,9 +25,8 @@ class _BabyNamesScreenState extends ConsumerState<BabyNamesScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFFC4520F), foregroundColor: Colors.white,
-        title: Text(AppLocale.s(context, 'tool_baby_names'), 
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        title: Text(AppLocale.s(context, 'tool_baby_names').replaceAll('\n', ' ')),
+        centerTitle: true,
       ),
       body: Column(
         children: [
@@ -78,7 +77,7 @@ class _BabyNamesScreenState extends ConsumerState<BabyNamesScreen> {
                   onSelectionChanged: (s) => setState(() => _gender = s.first),
                   style: ButtonStyle(
                     backgroundColor: WidgetStateProperty.resolveWith((states) =>
-                      states.contains(WidgetState.selected) ? const Color(0xFFC4520F) : null),
+                      states.contains(WidgetState.selected) ? Theme.of(context).colorScheme.primary : null),
                     foregroundColor: WidgetStateProperty.resolveWith((states) =>
                       states.contains(WidgetState.selected) ? Colors.white : null),
                   ),

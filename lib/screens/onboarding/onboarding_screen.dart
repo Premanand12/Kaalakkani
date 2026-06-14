@@ -51,7 +51,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     const Text('காலக்கணி',
                         style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700,
                             fontFamily: 'NotoSansTamil',
-                            color: Color(0xFFC4520F))),
+                            color: Color(0xFF6366F1))),
                     const SizedBox(height: 6),
                     Text('உங்கள் பஞ்சாங்கம் · உள்நுழைவு இல்லை · தேவை இல்லை',
                         textAlign: TextAlign.center,
@@ -105,12 +105,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           duration: const Duration(milliseconds: 150),
                           decoration: BoxDecoration(
                             color: _selectedRasi == i
-                                ? const Color(0xFFC4520F)
+                                ? const Color(0xFF6366F1)
                                 : colors.card2,
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
                               color: _selectedRasi == i
-                                  ? const Color(0xFFC4520F)
+                                  ? const Color(0xFF6366F1)
                                   : cs.onSurface.withOpacity(0.1),
                               width: 1,
                             ),
@@ -144,7 +144,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                       child: Row(
                         children: [
-                          const Icon(Icons.text_increase, color: Color(0xFFC4520F)),
+                          const Icon(Icons.text_increase, color: Color(0xFF6366F1)),
                           const SizedBox(width: 12),
                           Expanded(
                             child: Column(
@@ -163,7 +163,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           Switch(
                             value: _elderMode,
                             onChanged: (v) => setState(() => _elderMode = v),
-                            activeColor: const Color(0xFFC4520F),
+                            activeColor: const Color(0xFF6366F1),
                           ),
                         ],
                       ),
@@ -176,7 +176,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       child: ElevatedButton(
                         onPressed: _complete,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFC4520F),
+                          backgroundColor: const Color(0xFF6366F1),
                           foregroundColor: Colors.white,
                           padding: const EdgeInsets.symmetric(vertical: 16),
                           shape: RoundedRectangleBorder(
@@ -238,11 +238,11 @@ class _ChoiceCard extends StatelessWidget {
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
           color: selected
-              ? const Color(0xFFC4520F).withOpacity(0.08)
+              ? const Color(0xFF6366F1).withOpacity(0.08)
               : Theme.of(context).cardTheme.color,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: selected ? const Color(0xFFC4520F) : cs.onSurface.withOpacity(0.1),
+            color: selected ? const Color(0xFF6366F1) : cs.onSurface.withOpacity(0.1),
             width: selected ? 1.5 : 0.5,
           ),
         ),
@@ -284,7 +284,7 @@ class _ChoiceCard extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: selected ? const Color(0xFFC4520F) : cs.onSurface.withOpacity(0.2),
+                  color: selected ? const Color(0xFF6366F1) : cs.onSurface.withOpacity(0.2),
                   width: 1.5,
                 ),
               ),
@@ -292,7 +292,7 @@ class _ChoiceCard extends StatelessWidget {
                   ? Container(
                       margin: const EdgeInsets.all(3),
                       decoration: const BoxDecoration(
-                        color: Color(0xFFC4520F), shape: BoxShape.circle),
+                        color: Color(0xFF6366F1), shape: BoxShape.circle),
                     )
                   : null,
             ),

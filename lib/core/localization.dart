@@ -227,6 +227,11 @@ class AppLocale {
       'weekday_row': 'வாரம்',
       'panchangam_details_label': 'பஞ்சாங்க விவரம்',
       'date_conv_no_data': 'இந்த தேதிக்கு தகவல் இல்லை (2020–2030 மட்டுமே)',
+      'select_event_type': 'நிகழ்வு வகை தேர்வு',
+      'select_date_range': 'தேதி வரம்பு தேர்வு',
+      'search_muhurtham_btn': 'முகூர்த்த தேதிகள் தேடு',
+      'no_muhurtham_found': 'இந்த தேதி வரம்பில் முகூர்த்தம் கிடைக்கவில்லை.\nவரம்பை நீட்டுங்கள்.',
+      'muhurtham_search_title': 'சுப முகூர்த்தம் தேடல்',
     },
     'en': {
       // Bottom navigation tabs
@@ -392,6 +397,11 @@ class AppLocale {
       'weekday_row': 'Weekday',
       'panchangam_details_label': 'Panchangam Details',
       'date_conv_no_data': 'No information for this date (2020-2030 only)',
+      'select_event_type': 'Select Event Type',
+      'select_date_range': 'Select Date Range',
+      'search_muhurtham_btn': 'Search Muhurtham Dates',
+      'no_muhurtham_found': 'No Muhurtham dates found in this range.\nPlease extend the range.',
+      'muhurtham_search_title': 'Auspicious Muhurtham Search',
 
       // Individual matching categories
       'தின பொருத்தம்': 'Dina Porutham (Health)',
@@ -603,6 +613,23 @@ class AppLocale {
   static String translateKaranam(BuildContext context, String karanamTa) {
     if (isTa(context)) return karanamTa;
     return karanamsTaToEn[karanamTa] ?? karanamTa;
+  }
+
+  static const _muhurthamEventsTaToEn = {
+    'திருமணம்': 'Marriage / Wedding',
+    'கிரஹப்பிரவேசம்': 'Housewarming (Grihapravesham)',
+    'வாகன வாங்குதல்': 'Buying Vehicle',
+    'கடை திறப்பு': 'Shop Opening',
+    'தொண்டில் சேர்தல்': 'Joining Service / Job',
+    'குழந்தை நாமகரணம்': 'Baby Naming',
+    'காது குத்துதல்': 'Ear Piercing',
+    'திரோட்டில்': 'Travel / Voyage',
+    'அன்னப்பிரசனம்': 'First Rice Feeding (Annaprasanam)',
+  };
+
+  static String translateMuhurthamEvent(BuildContext context, String eventTa) {
+    if (isTa(context)) return eventTa;
+    return _muhurthamEventsTaToEn[eventTa] ?? eventTa;
   }
 
   static String transliterate(String tamil) {

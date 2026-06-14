@@ -124,14 +124,14 @@ class _PanchangamCard extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Color(0xFFC4520F),
-            Color(0xFF9E3F08),
+            Color(0xFF6366F1),
+            Color(0xFF4338CA),
           ],
         ),
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFFC4520F).withOpacity(0.3),
+            color: const Color(0xFF6366F1).withOpacity(0.3),
             blurRadius: 12,
             offset: const Offset(0, 4),
           ),

@@ -37,7 +37,7 @@ class _FestivalBannerState extends State<FestivalBanner>
 
   // Gradient colours per festival
   static const Map<String, List<Color>> _gradients = {
-    'normal':    [Color(0xFFC4520F), Color(0xFF9E3F08)],
+    'normal':    [Color(0xFF6366F1), Color(0xFF4338CA)],
     'diwali':    [Color(0xFF8B2500), Color(0xFF3D0A00)],
     'pongal':    [Color(0xFF0A5C1A), Color(0xFF063D10)],
     'karthigai': [Color(0xFF7A1A00), Color(0xFF3D0A00)],

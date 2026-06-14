@@ -33,9 +33,8 @@ class _GoldRateScreenState extends State<GoldRateScreen> {
     final colors = Theme.of(context).extension<KaalakkaniColors>()!;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFFC4520F), foregroundColor: Colors.white,
-        title: Text(AppLocale.s(context, 'tool_gold'), 
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        title: Text(AppLocale.s(context, 'tool_gold').replaceAll('\n', ' ')),
+        centerTitle: true,
         actions: [IconButton(icon: const Icon(Icons.refresh), onPressed: _load)],
       ),
       body: _loading

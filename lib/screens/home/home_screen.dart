@@ -106,7 +106,7 @@ class HomeScreen extends ConsumerWidget {
                   return Theme(
                     data: Theme.of(context).copyWith(
                       colorScheme: ColorScheme.light(
-                        primary: const Color(0xFFC4520F),
+                        primary: Theme.of(context).colorScheme.primary,
                         onPrimary: Colors.white,
                         onSurface: Theme.of(context).colorScheme.onSurface,
                       ),
@@ -119,14 +119,14 @@ class HomeScreen extends ConsumerWidget {
                 ref.read(homeDateProvider.notifier).state = picked;
               }
             },
-            icon: const Icon(Icons.calendar_today_outlined, size: 14, color: Color(0xFFC4520F)),
+            icon: Icon(Icons.calendar_today_outlined, size: 14, color: Theme.of(context).colorScheme.primary),
             label: Text(
               _formatDate(context, currentDate),
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: 'NotoSansTamil',
                 fontWeight: FontWeight.w700,
                 fontSize: 12,
-                color: Color(0xFFC4520F),
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
           ),
@@ -542,7 +542,7 @@ class HomeScreen extends ConsumerWidget {
           children: [
             Row(
               children: [
-                const Icon(Icons.access_time_filled, color: Color(0xFFC4520F), size: 16),
+                Icon(Icons.access_time_filled, color: Theme.of(context).colorScheme.primary, size: 16),
                 const SizedBox(width: 6),
                 Text(
                   AppLocale.s(context, 'timings_title'),
@@ -662,7 +662,7 @@ class HomeScreen extends ConsumerWidget {
           children: [
             Row(
               children: [
-                const Icon(Icons.menu_book, color: Color(0xFFC4520F), size: 16),
+                Icon(Icons.menu_book, color: Theme.of(context).colorScheme.primary, size: 16),
                 const SizedBox(width: 6),
                 Text(
                   AppLocale.s(context, 'kural_title'),
@@ -694,11 +694,11 @@ class HomeScreen extends ConsumerWidget {
                   children: [
                     Text(
                       isTa ? 'குறள் ${k['number']}:' : 'Kural ${k['number']}:',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: 'NotoSansTamil',
                         fontSize: 9,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFFC4520F),
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     const SizedBox(height: 4),

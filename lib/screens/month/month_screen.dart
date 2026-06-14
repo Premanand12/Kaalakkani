@@ -52,7 +52,7 @@ class _MonthScreenState extends ConsumerState<MonthScreen> {
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft, end: Alignment.bottomRight,
-                colors: [Color(0xFFC4520F), Color(0xFF9E3F08)],
+                colors: [Color(0xFF6366F1), Color(0xFF4338CA)],
               ),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(24),
@@ -301,7 +301,7 @@ class _CalendarGrid extends StatelessWidget {
             color: bg ?? colors.card2.withOpacity(0.35),
             borderRadius: BorderRadius.circular(10),
             border: isToday
-                ? Border.all(color: const Color(0xFFC4520F), width: 1.5)
+                ? Border.all(color: Theme.of(context).colorScheme.primary, width: 1.5)
                 : Border.all(color: Colors.transparent),
           ),
           child: Stack(
@@ -312,7 +312,7 @@ class _CalendarGrid extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 10.5,
                     fontWeight: isToday ? FontWeight.bold : FontWeight.w600,
-                    color: isToday ? const Color(0xFFC4520F) : numColor,
+                    color: isToday ? Theme.of(context).colorScheme.primary : numColor,
                   ),
                 ),
               ),

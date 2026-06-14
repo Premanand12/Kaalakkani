@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/theme.dart';
+import '../../core/localization.dart';
 import '../../data/database_helper.dart';
 
 class MuhurthamScreen extends ConsumerStatefulWidget {
@@ -44,8 +45,10 @@ class _MuhurthamScreenState extends ConsumerState<MuhurthamScreen> {
             backgroundColor: const Color(0xFFC4520F),
             foregroundColor: Colors.white,
             pinned: true,
-            title: const Text('சுப முகூர்த்தம் தேடல்',
-                style: TextStyle(fontFamily: 'NotoSansTamil', fontSize: 15)),
+            title: Text(
+              AppLocale.s(context, 'muhurtham_search_title'),
+              style: const TextStyle(fontFamily: 'NotoSansTamil', fontSize: 16.5, fontWeight: FontWeight.bold),
+            ),
           ),
           SliverToBoxAdapter(
             child: Padding(
@@ -54,10 +57,15 @@ class _MuhurthamScreenState extends ConsumerState<MuhurthamScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Event type selector
-                  Text('நிகழ்வு வகை தேர்வு',
-                      style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700,
-                          fontFamily: 'NotoSansTamil',
-                          color: cs.onSurface.withOpacity(0.5))),
+                  Text(
+                    AppLocale.s(context, 'select_event_type'),
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'NotoSansTamil',
+                      color: cs.onSurface.withOpacity(0.55),
+                    ),
+                  ),
                   const SizedBox(height: 10),
                   Wrap(
                     spacing: 8, runSpacing: 8,
@@ -71,25 +79,34 @@ class _MuhurthamScreenState extends ConsumerState<MuhurthamScreen> {
                           border: Border.all(
                             color: _selectedEvent == e
                                 ? const Color(0xFFC4520F)
-                                : cs.onSurface.withOpacity(0.1),
+                                : cs.onSurface.withOpacity(0.15),
                             width: _selectedEvent == e ? 1.5 : 0.5,
                           ),
                         ),
-                        child: Text(e,
-                            style: TextStyle(
-                                fontFamily: 'NotoSansTamil', fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                                color: _selectedEvent == e ? Colors.white : cs.onSurface)),
+                        child: Text(
+                          AppLocale.translateMuhurthamEvent(context, e),
+                          style: TextStyle(
+                            fontFamily: 'NotoSansTamil',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: _selectedEvent == e ? Colors.white : cs.onSurface,
+                          ),
+                        ),
                       ),
                     )).toList(),
                   ),
                   const SizedBox(height: 20),
 
                   // Date range picker
-                  Text('தேதி வரம்பு தேர்வு',
-                      style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700,
-                          fontFamily: 'NotoSansTamil',
-                          color: cs.onSurface.withOpacity(0.5))),
+                  Text(
+                    AppLocale.s(context, 'select_date_range'),
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'NotoSansTamil',
+                      color: cs.onSurface.withOpacity(0.55),
+                    ),
+                  ),
                   const SizedBox(height: 10),
                   GestureDetector(
                     onTap: () async {
@@ -112,17 +129,21 @@ class _MuhurthamScreenState extends ConsumerState<MuhurthamScreen> {
                       decoration: BoxDecoration(
                         color: colors.card2,
                         borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: cs.onSurface.withOpacity(0.1), width: 0.5),
+                        border: Border.all(color: cs.onSurface.withOpacity(0.15), width: 0.5),
                       ),
                       child: Row(
                         children: [
-                          Icon(Icons.date_range, color: const Color(0xFFC4520F), size: 20),
+                          const Icon(Icons.date_range, color: Color(0xFFC4520F), size: 20),
                           const SizedBox(width: 10),
-                          Text(_fmtDate(_range.start),
-                              style: const TextStyle(fontFamily: 'Inter', fontSize: 13)),
-                          const Text('  →  ', style: TextStyle(fontSize: 13)),
-                          Text(_fmtDate(_range.end),
-                              style: const TextStyle(fontFamily: 'Inter', fontSize: 13)),
+                          Text(
+                            _fmtDate(_range.start),
+                            style: const TextStyle(fontFamily: 'Inter', fontSize: 15.0),
+                          ),
+                          const Text('  →  ', style: TextStyle(fontSize: 15.0)),
+                          Text(
+                            _fmtDate(_range.end),
+                            style: const TextStyle(fontFamily: 'Inter', fontSize: 15.0),
+                          ),
                         ],
                       ),
                     ),
@@ -144,9 +165,11 @@ class _MuhurthamScreenState extends ConsumerState<MuhurthamScreen> {
                       child: _loading
                           ? const SizedBox(width: 20, height: 20,
                               child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
-                          : const Text('முகூர்த்த தேதிகள் தேடு',
-                              style: TextStyle(fontFamily: 'NotoSansTamil', fontSize: 14,
-                                  fontWeight: FontWeight.w700)),
+                          : Text(
+                              AppLocale.s(context, 'search_muhurtham_btn'),
+                              style: const TextStyle(fontFamily: 'NotoSansTamil', fontSize: 15.5,
+                                  fontWeight: FontWeight.bold),
+                            ),
                     ),
                   ),
                 ],
@@ -161,10 +184,15 @@ class _MuhurthamScreenState extends ConsumerState<MuhurthamScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(24),
                     child: Center(
-                      child: Text('இந்த தேதி வரம்பில் முகூர்த்தம் கிடைக்கவில்லை.\nவரம்பை நீட்டுங்கள்.',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontFamily: 'NotoSansTamil', fontSize: 13,
-                              color: cs.onSurface.withOpacity(0.5))),
+                      child: Text(
+                        AppLocale.s(context, 'no_muhurtham_found'),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'NotoSansTamil',
+                          fontSize: 14.5,
+                          color: cs.onSurface.withOpacity(0.55),
+                        ),
+                      ),
                     ),
                   ),
                 )
@@ -237,12 +265,16 @@ class _MuhurthamCard extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(dateDisp,
-                      style: const TextStyle(fontFamily: 'Inter', fontSize: 14,
-                          fontWeight: FontWeight.w600)),
-                  Text(day.weekdayTa,
-                      style: TextStyle(fontFamily: 'NotoSansTamil', fontSize: 10,
-                          color: cs.onSurface.withOpacity(0.5))),
+                  Text(
+                    dateDisp,
+                    style: const TextStyle(fontFamily: 'Inter', fontSize: 16.0,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  Text(
+                    AppLocale.isTa(context) ? day.weekdayTa : AppLocale.weekdaysEn[day.weekday],
+                    style: TextStyle(fontFamily: 'NotoSansTamil', fontSize: 13.0,
+                        color: cs.onSurface.withOpacity(0.55)),
+                  ),
                 ],
               ),
               const Spacer(),
@@ -260,13 +292,24 @@ class _MuhurthamCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 12),
           Wrap(
             spacing: 6, runSpacing: 5,
             children: [
-              _Tag(label: day.thithiTa, color: colors.good),
-              _Tag(label: day.nakshatraTa, color: colors.info),
-              _Tag(label: '${day.nallaNeramStart}–${day.nallaNeramEnd}', color: colors.warn),
+              _Tag(
+                label: AppLocale.isTa(context)
+                    ? '${day.thithiPaksha} ${day.thithiTa}'
+                    : '${day.thithiPaksha == 'சுக்ல' ? 'Shukla' : 'Krishna'} ${day.thithiEn}',
+                color: colors.good,
+              ),
+              _Tag(
+                label: AppLocale.isTa(context) ? day.nakshatraTa : day.nakshatraEn,
+                color: colors.info,
+              ),
+              _Tag(
+                label: '${day.nallaNeramStart}–${day.nallaNeramEnd}',
+                color: colors.warn,
+              ),
             ],
           ),
         ],
@@ -282,15 +325,17 @@ class _Tag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
         color: color.withOpacity(0.1),
         borderRadius: BorderRadius.circular(6),
         border: Border.all(color: color.withOpacity(0.3), width: 0.5),
       ),
-      child: Text(label,
-          style: TextStyle(fontSize: 10, fontFamily: 'NotoSansTamil',
-              fontWeight: FontWeight.w500, color: color)),
+      child: Text(
+        label,
+        style: TextStyle(fontSize: 12.5, fontFamily: 'NotoSansTamil',
+            fontWeight: FontWeight.w600, color: color),
+      ),
     );
   }
 }

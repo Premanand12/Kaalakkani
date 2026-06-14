@@ -26,10 +26,8 @@ class _PoruthamScreenState extends State<PoruthamScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFFC4520F),
-        foregroundColor: Colors.white,
-        title: Text(AppLocale.s(context, 'tool_porutham'),
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        title: Text(AppLocale.s(context, 'tool_porutham').replaceAll('\n', ' ')),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -58,7 +56,7 @@ class _PoruthamScreenState extends State<PoruthamScreen> {
               child: ElevatedButton(
                 onPressed: _calculate,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFC4520F),
+                  backgroundColor: Theme.of(context).colorScheme.primary,
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
@@ -75,7 +73,7 @@ class _PoruthamScreenState extends State<PoruthamScreen> {
                 padding: const EdgeInsets.all(18),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors: [Color(0xFFC4520F), Color(0xFF9E3F08)],
+                    colors: [Color(0xFF6366F1), Color(0xFF4338CA)],
                   ),
                   borderRadius: BorderRadius.circular(14),
                 ),
