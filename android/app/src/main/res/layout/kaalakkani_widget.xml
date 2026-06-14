@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#C4520F"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/widget_tamil_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ஆனி 29"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/widget_tamil_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="பராபவ"
+        android:textColor="#FFD0A0"
+        android:textSize="11sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:background="#80FFFFFF" />
+
+    <TextView
+        android:id="@+id/widget_thithi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="திதி: --"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/widget_nakshatra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="நட்சத்திரம்: --"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/widget_nalla_neram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="நல்ல நேரம்: --:-- – --:--"
+        android:textColor="#90FF90"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/widget_rahukaalam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ராகு: --:-- – --:--"
+        android:textColor="#FF9090"
+        android:textSize="11sp" />
+
+</LinearLayout>

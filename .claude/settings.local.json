@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"C:\\\\src\\\\flutter\\\\bin\\\\flutter.bat\" -ErrorAction SilentlyContinue; Get-ChildItem \"$env:USERPROFILE\\\\flutter\\\\bin\\\\flutter.bat\" -ErrorAction SilentlyContinue; Get-ChildItem \"C:\\\\flutter\\\\bin\\\\flutter.bat\" -ErrorAction SilentlyContinue)",
+      "PowerShell(Set-Location \"D:\\\\App\\\\kaalakkani\"; & \"$env:USERPROFILE\\\\flutter\\\\bin\\\\flutter.bat\" pub get 2>&1 | Select-Object -Last 20)",
+      "PowerShell(Head -40)"
+    ]
+  }
+}
